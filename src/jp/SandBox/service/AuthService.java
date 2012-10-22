@@ -24,4 +24,8 @@ public class AuthService {
             return false;
         }
     }
+    
+    public boolean isLogin(){
+        return !service.equals("")? true : false;
+    }
 }

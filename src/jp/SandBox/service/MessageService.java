@@ -27,21 +27,23 @@ public class MessageService {
         return keys;
     }
     
-    public void insert(Map<String, Object> input) {
+    public void insert(Map<String, Object> input, String userId) {
         Message message = new Message();
+        message.setUserName(userId);
         BeanUtil.copy(input, message);
         Transaction tx = Datastore.beginTransaction();
         Datastore.put(tx, message);
         tx.commit();
     }
     
-    public void update(List<String> strKeys, List<String> messages) {
+    public void update(List<String> strKeys, List<String> messages, String userName) {
         List<Key> keys = StringListToKeyList(strKeys);
         List<Message> message = Datastore.get(Message.class, keys);
         Integer i = 0;
         for (Message msg : message) {
             Transaction tx = Datastore.beginTransaction();
             msg.setMessage(messages.get(i++));
+            msg.setUserName(userName);
             Datastore.put(msg);
             tx.commit();
         }

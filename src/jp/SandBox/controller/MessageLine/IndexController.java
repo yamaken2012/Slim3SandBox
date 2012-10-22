@@ -14,9 +14,12 @@ public class IndexController extends Controller {
     SessionManagementService session  = new SessionManagementService();
     @Override
     public Navigation run() throws Exception {
-        List<Message> messageList = service.getMessageList();
-        requestScope("messageList", messageList);
-        requestScope("userId", session.getUserId());
-        return forward("index.jsp");
+        if(!session.getUserId().equals("")){
+            List<Message> messageList = service.getMessageList();
+            requestScope("messageList", messageList);
+            requestScope("userId", session.getUserId());
+            return forward("index.jsp");
+        }
+        return redirect("/Login/");
     }
 }

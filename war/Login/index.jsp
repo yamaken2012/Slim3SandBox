@@ -13,6 +13,7 @@
 	<header class="jumbotron subhead" id="overview">
 		<div class="container">
 			<h1>Line</h1>
+			<p>v0.2</p>
 			<form method="post" action="auth" class="form-inline">
 				<input type="text" name="id" class="input-medium" placeholder="id">
 				<input type="password" name="password" class="input-medium" placeholder="password">

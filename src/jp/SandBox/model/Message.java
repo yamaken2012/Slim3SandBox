@@ -2,18 +2,19 @@ package jp.SandBox.model;
 
 import java.io.Serializable;
 import java.util.Date;
-
 import com.google.appengine.api.datastore.Key;
-
 import org.slim3.datastore.Attribute;
 import org.slim3.datastore.Model;
 
 @Model(schemaVersion = 1)
 public class Message implements Serializable {
-
+    
     private static final long serialVersionUID = 1L;
     private String message;
+    
     private Date createDate = new Date(); 
+    
+    private String userName;
     
     @Attribute(primaryKey = true)
     private Key key;
@@ -103,5 +104,13 @@ public class Message implements Serializable {
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }
