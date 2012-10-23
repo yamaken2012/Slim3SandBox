@@ -18,6 +18,7 @@ public class InsertController extends Controller {
         if(!authService.isLogin()){
             return redirect("/Login/");
         }
+        
         messageService.insert(new RequestMap(request), session.getUserId());
         return redirect(basePath);
     }

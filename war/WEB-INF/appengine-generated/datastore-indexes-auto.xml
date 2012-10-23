@@ -1,4 +1,11 @@
-<!-- Indices written at Mon, 22 Oct 2012 17:37:24 JST -->
+<!-- Indices written at Tue, 23 Oct 2012 13:38:59 JST -->
 
-<datastore-indexes/>
+<datastore-indexes>
 
+    <!-- Used 36 times in query history -->
+    <datastore-index kind="Message" ancestor="false" source="auto">
+        <property name="userId" direction="asc"/>
+        <property name="createDate" direction="desc"/>
+    </datastore-index>
+
+</datastore-indexes>

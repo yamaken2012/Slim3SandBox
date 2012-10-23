@@ -10,7 +10,7 @@ public class AuthController extends Controller {
     @Override
     public Navigation run() throws Exception {
         if(service.isAuth(new RequestMap(request))){
-            return redirect("/MessageLine/");
+            return redirect("/MessageLine");
         }else{
             return redirect(basePath);
         }

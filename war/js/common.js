@@ -1,8 +1,4 @@
 jQuery(function(){
-	jQuery('#btn-insert').click(function() {
-    	jQuery('#post-form').submit();
-    });
-
 	jQuery('#btn-update').click(function() {
     	jQuery('#show-form').attr('action', 'update');
     	jQuery('#show-form').submit();

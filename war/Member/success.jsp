@@ -9,12 +9,10 @@
 <link type="text/css" href="../css/bootstrap.css" rel="stylesheet" />
 <title>Member Success</title>
 </head>
-<body class="jumbotron subhead" id="overview">
-	<header class="jumbotron subhead" id="overview">
-		<div class="container">
-			<h1>Register Success!!</h1>
-			<a href="/Login" class="btn btn-primary">Let's Join Now!!</a>
-		</div>
-	</header>
+<body>
+	<div class="container">
+		<h1>Register Success!!</h1>
+		<a href="/Login" class="btn btn-primary">Let's Join Now!!</a>
+	</div>
 </body>
 </html>

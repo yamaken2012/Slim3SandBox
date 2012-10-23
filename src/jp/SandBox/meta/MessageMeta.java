@@ -1,6 +1,6 @@
 package jp.SandBox.meta;
 
-//@javax.annotation.Generated(value = { "slim3-gen", "@VERSION@" }, date = "2012-10-22 17:53:48")
+//@javax.annotation.Generated(value = { "slim3-gen", "@VERSION@" }, date = "2012-10-23 13:23:42")
 /** */
 public final class MessageMeta extends org.slim3.datastore.ModelMeta<jp.SandBox.model.Message> {
 
@@ -14,7 +14,7 @@ public final class MessageMeta extends org.slim3.datastore.ModelMeta<jp.SandBox.
     public final org.slim3.datastore.StringAttributeMeta<jp.SandBox.model.Message> message = new org.slim3.datastore.StringAttributeMeta<jp.SandBox.model.Message>(this, "message", "message");
 
     /** */
-    public final org.slim3.datastore.StringAttributeMeta<jp.SandBox.model.Message> userName = new org.slim3.datastore.StringAttributeMeta<jp.SandBox.model.Message>(this, "userName", "userName");
+    public final org.slim3.datastore.StringAttributeMeta<jp.SandBox.model.Message> userId = new org.slim3.datastore.StringAttributeMeta<jp.SandBox.model.Message>(this, "userId", "userId");
 
     /** */
     public final org.slim3.datastore.CoreAttributeMeta<jp.SandBox.model.Message, java.lang.Long> version = new org.slim3.datastore.CoreAttributeMeta<jp.SandBox.model.Message, java.lang.Long>(this, "version", "version", java.lang.Long.class);
@@ -39,7 +39,7 @@ public final class MessageMeta extends org.slim3.datastore.ModelMeta<jp.SandBox.
         model.setCreateDate((java.util.Date) entity.getProperty("createDate"));
         model.setKey(entity.getKey());
         model.setMessage((java.lang.String) entity.getProperty("message"));
-        model.setUserName((java.lang.String) entity.getProperty("userName"));
+        model.setUserId((java.lang.String) entity.getProperty("userId"));
         model.setVersion((java.lang.Long) entity.getProperty("version"));
         return model;
     }
@@ -55,7 +55,7 @@ public final class MessageMeta extends org.slim3.datastore.ModelMeta<jp.SandBox.
         }
         entity.setProperty("createDate", m.getCreateDate());
         entity.setProperty("message", m.getMessage());
-        entity.setProperty("userName", m.getUserName());
+        entity.setProperty("userId", m.getUserId());
         entity.setProperty("version", m.getVersion());
         entity.setProperty("slim3.schemaVersion", 1);
         return entity;
@@ -131,9 +131,9 @@ public final class MessageMeta extends org.slim3.datastore.ModelMeta<jp.SandBox.
             writer.setNextPropertyName("message");
             encoder0.encode(writer, m.getMessage());
         }
-        if(m.getUserName() != null){
-            writer.setNextPropertyName("userName");
-            encoder0.encode(writer, m.getUserName());
+        if(m.getUserId() != null){
+            writer.setNextPropertyName("userId");
+            encoder0.encode(writer, m.getUserId());
         }
         if(m.getVersion() != null){
             writer.setNextPropertyName("version");
@@ -153,8 +153,8 @@ public final class MessageMeta extends org.slim3.datastore.ModelMeta<jp.SandBox.
         m.setKey(decoder0.decode(reader, m.getKey()));
         reader = rootReader.newObjectReader("message");
         m.setMessage(decoder0.decode(reader, m.getMessage()));
-        reader = rootReader.newObjectReader("userName");
-        m.setUserName(decoder0.decode(reader, m.getUserName()));
+        reader = rootReader.newObjectReader("userId");
+        m.setUserId(decoder0.decode(reader, m.getUserId()));
         reader = rootReader.newObjectReader("version");
         m.setVersion(decoder0.decode(reader, m.getVersion()));
         return m;

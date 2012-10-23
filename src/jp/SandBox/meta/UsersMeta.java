@@ -1,6 +1,6 @@
 package jp.SandBox.meta;
 
-//@javax.annotation.Generated(value = { "slim3-gen", "@VERSION@" }, date = "2012-10-22 16:33:15")
+//@javax.annotation.Generated(value = { "slim3-gen", "@VERSION@" }, date = "2012-10-23 10:25:10")
 /** */
 public final class UsersMeta extends org.slim3.datastore.ModelMeta<jp.SandBox.model.Users> {
 

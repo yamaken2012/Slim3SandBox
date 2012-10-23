@@ -17,6 +17,13 @@ public class MessageService {
     MessageMeta e = MessageMeta.get();
     
     public List<Message> getMessageList(){
+        SessionManagementService session = new SessionManagementService();
+        List<Message> messages = Datastore.query(e).filter(e.userId.equal((String)session.getUserId()))
+                                                   .sort(e.createDate.desc).asList();
+        return messages;
+    }
+    
+    public List<Message> getAllMessageList(){
         List<Message> messages = Datastore.query(e).sort(e.createDate.desc).asList();
         return messages;
     }
@@ -29,21 +36,21 @@ public class MessageService {
     
     public void insert(Map<String, Object> input, String userId) {
         Message message = new Message();
-        message.setUserName(userId);
+        message.setUserId(userId);
         BeanUtil.copy(input, message);
         Transaction tx = Datastore.beginTransaction();
         Datastore.put(tx, message);
         tx.commit();
     }
     
-    public void update(List<String> strKeys, List<String> messages, String userName) {
+    public void update(List<String> strKeys, List<String> messages, String userId) {
         List<Key> keys = StringListToKeyList(strKeys);
         List<Message> message = Datastore.get(Message.class, keys);
         Integer i = 0;
         for (Message msg : message) {
             Transaction tx = Datastore.beginTransaction();
             msg.setMessage(messages.get(i++));
-            msg.setUserName(userName);
+            msg.setUserId(userId);
             Datastore.put(msg);
             tx.commit();
         }

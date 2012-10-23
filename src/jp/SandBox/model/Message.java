@@ -14,7 +14,7 @@ public class Message implements Serializable {
     
     private Date createDate = new Date(); 
     
-    private String userName;
+    private String userId;
     
     @Attribute(primaryKey = true)
     private Key key;
@@ -106,11 +106,11 @@ public class Message implements Serializable {
         this.createDate = createDate;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

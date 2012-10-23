@@ -9,18 +9,16 @@
 <link type="text/css" href="../css/bootstrap.css" rel="stylesheet" />
 <title>ログイン画面</title>
 </head>
-<body class="jumbotron subhead" id="overview">
-	<header class="jumbotron subhead" id="overview">
-		<div class="container">
-			<h1>Line</h1>
-			<p>v0.2</p>
-			<form method="post" action="auth" class="form-inline">
-				<input type="text" name="id" class="input-medium" placeholder="id">
-				<input type="password" name="password" class="input-medium" placeholder="password">
-				<input type="submit" class="btn" value="Login"/>
-			</form>
-			<a href="/Member" class="btn btn-primary">Let's Register Now!!</a>
-		</div>
-	</header>
+<body>
+	<div class="container">
+		<h1>Line v0.5</h1>
+		<p><a target="_blank" href="https://github.com/yamaken2012/Slim3SandBox">Code is github</a></p>
+		<form method="post" action="auth" class="form-inline">
+			<input type="text" name="id" class="input-medium" placeholder="id">
+			<input type="password" name="password" class="input-medium" placeholder="password">
+			<input type="submit" class="btn" value="Login"/>
+		</form>
+		<a href="/Member" class="btn btn-primary">Let's Register Now!!</a>
+	</div>
 </body>
 </html>

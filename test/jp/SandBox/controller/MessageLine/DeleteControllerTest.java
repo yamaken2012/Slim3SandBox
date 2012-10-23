@@ -1,5 +1,7 @@
 package jp.SandBox.controller.MessageLine;
 
+import jp.SandBox.controller.MessageEdit.DeleteController;
+
 import org.slim3.tester.ControllerTestCase;
 import org.junit.Test;
 import static org.junit.Assert.*;

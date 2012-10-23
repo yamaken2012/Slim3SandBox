@@ -3,45 +3,63 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="f" uri="http://www.slim3.org/functions"%>
-
-
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link type="text/css" href="../css/bootstrap.css" rel="stylesheet" />
-<script type="text/javascript" src="../js/jquery_v182.js"></script>
-<script type="text/javascript" src="../js/common.js"></script>
-<title>メッセージ投稿/表示画面</title>
+<title>メッセージ表示画面</title>
 </head>
-<body class="jumbotron subhead" id="overview">
-	<a href="/Login" class="logout pull-right">Logout</a>
-	<header class="jumbotron subhead" id="overview">
-		<div class="container">
-			<h1>Line</h1>
-			<p class="lead">Hey.${f:h(userId)}! Let's Message Post!</p>
-			<form method="post" action="insert" id="post-form" class="form-inline">
-				<input type="text" name="message" class="span6">
-			</form>
-			<input type="button" value="PostMessage" id="btn-insert" class="btn btn-info"/>
-			<input type="button" value="UpdateMessage" id="btn-update" class="btn btn-success"/>
-			<input type="button" value="DeleteMessage" id="btn-delete" class="btn btn-danger"/>
+<body>
+	<div style="padding-bottom:20px;margin-right:20px;">
+		<a href="/Logout" class="pull-right">Logout</a>
+	</div>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<!-- left area -->
+			<div class="span5 well">
+				<!-- profile area -->
+				<div style="padding-bottom:1px;">
+					<div style="float: left; padding-right:10px;">
+						<img src="http://lorempixel.com/60/60/">
+					</div>
+					<div style="float: none;">
+						<p><strong>${f:h(userId)}</strong></p>
+						<p><a href="prof">See Profile</a></p>
+					</div>
+				</div>
+				<hr/>
+				<!-- message post area -->
+				<form method="post" action="insert" id="post-form" class="form-inline">
+					<input type="text" name="message" class="span5" placeholder="post message">
+					<input type="submit" value="PostMessage" class="btn btn-info"/>
+				</form>
+				<a href="/MessageEdit">Edit post message</a>
+			</div>
+			
+			<!-- right area -->
+			<div class="span7 well">
+				<!-- right area header -->
+				<div>
+					<h2>Message</h2>
+				</div>
+				<hr/>
+				
+				<!-- message area -->
+				<c:forEach var="e" items="${messageList}">
+				<div style="height:80px;">
+					<div style="float: left; padding-right:10px;">
+						<img src="http://lorempixel.com/60/60/">
+					</div>
+					<div>${f:h(e.message)}</div>
+					<div class="pull-right">
+						<strong>${f:h(e.userId)}</strong>
+						<strong><fmt:formatDate value="${e.createDate}" pattern="yyyy/MM/dd HH:mm:ss" /></strong>
+					</div>
+				</div>
+				<hr/>
+				</c:forEach>
+			</div>
 		</div>
-	</header>
-
-	<div style="padding-top: 10px;" class="contents">		
-		<form method="post" action="update" id="show-form" class="form-inline">
-			<table class="table">
-			<c:forEach var="e" items="${messageList}">
-				<tr>
-					<input type="hidden" name="keyArray" value="${f:h(e.key)}">
-					<td><input type="checkbox" name="checkBoxArray" value="${f:h(e.key)}"/></td>
-					<td><input type="text" name="messageArray" value="${f:h(e.message)}"></td>
-					<td>${f:h(e.userName)}</td>
-					<td><fmt:formatDate value="${e.createDate}" pattern="yyyy/MM/dd HH:mm:ss" /></td>	
-				</tr>
-			</c:forEach>
-			</table>
-		</form>
 	</div>
 </body>
 </html>
